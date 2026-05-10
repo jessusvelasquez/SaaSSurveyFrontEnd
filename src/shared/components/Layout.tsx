@@ -1,5 +1,6 @@
+import { useEffect, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { signOut } from 'aws-amplify/auth';
+import { signOut, fetchUserAttributes } from 'aws-amplify/auth';
 
 const navItems = [
   { to: '/admin', icon: '📊', label: 'Dashboard', end: true },
@@ -8,6 +9,13 @@ const navItems = [
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const navigate = useNavigate();
+  const [email, setEmail] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetchUserAttributes()
+      .then(attrs => setEmail(attrs.email ?? null))
+      .catch(err => console.error('Error fetching user attributes:', err));
+  }, []);
 
   const handleSignOut = async () => {
     await signOut();
@@ -38,6 +46,21 @@ export function Layout({ children }: { children: React.ReactNode }) {
         ))}
 
         <div style={{ marginTop: 'auto' }}>
+          {email && (
+            <div style={{
+              padding: 'var(--space-3) var(--space-4)',
+              fontSize: '0.75rem',
+              color: 'var(--color-text-subtle)',
+              borderBottom: '1px solid var(--color-border)',
+              marginBottom: 'var(--space-2)',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              whiteSpace: 'nowrap'
+            }}>
+              <div style={{ fontWeight: 600, color: 'var(--color-text-muted)', marginBottom: '2px' }}>USUARIO</div>
+              {email}
+            </div>
+          )}
           <button className="nav-link" onClick={handleSignOut}>
             <span>🚪</span>
             Cerrar sesión

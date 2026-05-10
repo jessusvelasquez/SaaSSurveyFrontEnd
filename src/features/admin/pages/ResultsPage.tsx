@@ -82,7 +82,7 @@ function PieChartResult({ analytics, questions }: { analytics: QuestionAnalytics
             innerRadius={60}
             outerRadius={80}
             paddingAngle={5}
-            label={({ name, percent }) => `${name} (${(percent * 100).toFixed(0)}%)`}
+            label={({ name, percent }) => `${name} (${((percent || 0) * 100).toFixed(0)}%)`}
           >
             {data.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}
           </Pie>
