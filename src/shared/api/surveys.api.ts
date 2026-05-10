@@ -55,7 +55,7 @@ export const surveysApi = {
     request<{ responses: any[] }>({ url: `/surveys/responses/user/${encodeURIComponent(email)}`, method: 'GET' }),
 
   listPublic: () =>
-    request<{ surveys: Survey[]; count: number }>({ url: '/surveys', method: 'GET' }),
+    request<{ surveys: Survey[]; count: number }>({ url: '/surveys/public', method: 'GET' }),
 
   // Rutas admin (el interceptor inyectará el token)
   list: () =>
