@@ -2,7 +2,21 @@
 
 Una solución moderna para la gestión de encuestas, diseñada con una arquitectura **Serverless** escalable en AWS y una interfaz de usuario de alta gama enfocada en la visualización de datos en tiempo real.
 
-![Vista Previa](https://via.placeholder.com/1200x600.png?text=SaaS+Survey+Dashboard+Preview)
+![Dashboard](screenshots/dashboard.png)
+
+## 📸 Galería del Proyecto
+
+| Dashboard Administrativo | Portal de Encuestas |
+|:---:|:---:|
+| ![Dashboard](screenshots/dashboard.png) | ![Portal](screenshots/disponibles.png) |
+
+| Creación de Encuestas | Resultados en Tiempo Real |
+|:---:|:---:|
+| ![Crear](screenshots/Crear.png) | ![Resultados](screenshots/resultados.png) |
+
+| Acceso para Encuestados |
+|:---:|
+| ![Acceso](screenshots/acceso_a_encuentas.png) |
 
 ## ✨ Características Principales
 
